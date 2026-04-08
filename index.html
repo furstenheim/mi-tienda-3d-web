@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mi Tienda 3D - Impresión 3D de alto rendimiento en Embajadores, Madrid. Piezas personalizadas en PLA y PETG con precisión milimétrica.">
+    <meta name="theme-color" content="#0d0d0d">
+    <title>Mi Tienda 3D | Impresión 3D de Alto Rendimiento — Madrid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0VCEYFM9Z9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0VCEYFM9Z9');
+    </script>
+    <style>
+        /* =============================================
+           RESET & BASE
+           ============================================= */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0d0d0d;
+            --black-light: #1a1a1a;
+            --black-card: #141414;
+            --red: #E21A1A;
+            --red-dark: #b01515;
+            --gray: #888888;
+            --gray-light: #aaaaaa;
+            --white: #f0f0f0;
+            --white-pure: #ffffff;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Titillium Web', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* =============================================
+           CARBON FIBER PATTERN
+           ============================================= */
+        .carbon-fiber {
+            background-color: var(--black);
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.015) 2px,
+                    rgba(255,255,255,0.015) 4px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.02) 2px,
+                    rgba(255,255,255,0.02) 4px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.008) 3px,
+                    rgba(255,255,255,0.008) 6px
+                );
+        }
+
+        /* =============================================
+           STICKY NAVIGATION
+           ============================================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--red);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 4px 30px rgba(226, 26, 26, 0.15);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white-pure);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo span {
+            color: var(--red);
+        }
+
+        .nav-logo .logo-bar {
+            width: 4px;
+            height: 28px;
+            background: var(--red);
+            display: inline-block;
+            transform: skewX(-12deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white-pure);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            font-family: var(--font-heading) !important;
+            background: var(--red) !important;
+            color: var(--white-pure) !important;
+            padding: 10px 20px;
+            font-weight: 600 !important;
+            letter-spacing: 1px;
+            clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+            transition: background 0.3s ease !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--red-dark) !important;
+        }
+
+        /* Mobile menu toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* =============================================
+           HERO SECTION
+           ============================================= */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 120px 24px 80px;
+            background-color: var(--black);
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.012) 2px,
+                    rgba(255,255,255,0.012) 4px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.018) 2px,
+                    rgba(255,255,255,0.018) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(255,255,255,0.006) 4px,
+                    rgba(255,255,255,0.006) 8px
+                );
+        }
+
+        /* Diagonal stripes removed for readability */
+
+        /* Speed lines left */
+        .hero-speed-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-speed-lines::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: -10%;
+            width: 45%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(226, 26, 26, 0.4), transparent);
+            transform: rotate(-3deg);
+        }
+
+        .hero-speed-lines::after {
+            content: '';
+            position: absolute;
+            top: 75%;
+            left: -5%;
+            width: 35%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(226, 26, 26, 0.25), transparent);
+            transform: rotate(-2deg);
+        }
+
+        /* Bottom gradient fade */
+        .hero-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, var(--black), transparent);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-tag {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--red);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .hero-tag::before,
+        .hero-tag::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--red);
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.95;
+            letter-spacing: -1px;
+            color: var(--white-pure);
+            margin-bottom: 24px;
+        }
+
+        .hero-title .accent {
+            color: var(--red);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--gray-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--red);
+            color: var(--white-pure);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 18px 48px;
+            clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+            transition: background 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-cta:hover {
+            background: var(--red-dark);
+            transform: scale(1.03);
+        }
+
+        .hero-cta svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* Stats bar */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--red);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-top: 6px;
+        }
+
+        /* =============================================
+           SECTION UTILITIES
+           ============================================= */
+        .section {
+            padding: 100px 24px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+            position: relative;
+        }
+
+        .section-tag {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white-pure);
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .section-title .accent {
+            color: var(--red);
+        }
+
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--red);
+            margin: 20px auto 0;
+            position: relative;
+        }
+
+        .section-line::after {
+            content: '';
+            position: absolute;
+            left: calc(100% + 6px);
+            top: 0;
+            width: 12px;
+            height: 3px;
+            background: var(--gray);
+        }
+
+        /* Diagonal section divider */
+        .section-divider {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: var(--black);
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+            z-index: 5;
+        }
+
+        /* =============================================
+           SERVICIOS SECTION
+           ============================================= */
+        .servicios {
+            background: var(--black-light);
+            position: relative;
+        }
+
+        .servicios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(226, 26, 26, 0.02)
+            );
+            pointer-events: none;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .servicio-card {
+            background: var(--black-card);
+            border-left: 4px solid var(--red);
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 12px, 100% 100%, 0 100%);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(226, 26, 26, 0.08);
+        }
+
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(
+                135deg,
+                rgba(226, 26, 26, 0.06),
+                transparent
+            );
+            pointer-events: none;
+        }
+
+        /* Racing stripe on card */
+        .servicio-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red), transparent 60%);
+        }
+
+        .servicio-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .servicio-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--red);
+        }
+
+        .servicio-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white-pure);
+            margin-bottom: 14px;
+        }
+
+        .servicio-card p {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Specs list style */
+        .specs-list {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 16px;
+        }
+
+        .specs-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .specs-list li strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* =============================================
+           GALERIA SECTION
+           ============================================= */
+        .galeria {
+            background: var(--black);
+            position: relative;
+        }
+
+        .galeria::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--red), transparent);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/2;
+            cursor: pointer;
+        }
+
+        /* Red accent lines between items */
+        .galeria-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--red);
+            z-index: 3;
+            opacity: 0.4;
+        }
+
+        .galeria-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--red);
+            z-index: 3;
+            opacity: 0.4;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(226, 26, 26, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.4s ease;
+            z-index: 2;
+        }
+
+        .galeria-overlay span {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--white-pure);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.4s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.12);
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            background: rgba(226, 26, 26, 0.7);
+        }
+
+        .galeria-item:hover .galeria-overlay span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =============================================
+           SOBRE NOSOTROS SECTION
+           ============================================= */
+        .sobre {
+            background: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Diagonal racing stripe background */
+        .sobre::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -5%;
+            width: 50px;
+            height: 180%;
+            background: rgba(226, 26, 26, 0.03);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .sobre::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 2%;
+            width: 6px;
+            height: 180%;
+            background: rgba(226, 26, 26, 0.05);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .sobre-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sobre-content h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white-pure);
+            margin-bottom: 24px;
+            line-height: 1.15;
+        }
+
+        .sobre-content h3 .accent {
+            color: var(--red);
+        }
+
+        .sobre-content p {
+            font-size: 1rem;
+            color: var(--gray-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .sobre-values {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .sobre-value {
+            background: var(--black-card);
+            padding: 24px;
+            border-left: 3px solid var(--red);
+            position: relative;
+        }
+
+        .sobre-value::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--red), transparent 50%);
+        }
+
+        .sobre-value h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--white-pure);
+            margin-bottom: 6px;
+        }
+
+        .sobre-value p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .sobre-visual {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sobre-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+        }
+
+        .sobre-image-wrapper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .sobre-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(226, 26, 26, 0.1),
+                transparent 60%
+            );
+        }
+
+        .sobre-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            background: var(--red);
+            padding: 20px 28px;
+            text-align: center;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            z-index: 3;
+        }
+
+        .sobre-badge .badge-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white-pure);
+            line-height: 1;
+        }
+
+        .sobre-badge .badge-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* =============================================
+           CONTACTO SECTION
+           ============================================= */
+        .contacto {
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contacto::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.008) 2px,
+                    rgba(255,255,255,0.008) 4px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.012) 2px,
+                    rgba(255,255,255,0.012) 4px
+                );
+            pointer-events: none;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .contacto-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contacto-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white-pure);
+            margin-bottom: 16px;
+        }
+
+        .contacto-info h3 .accent {
+            color: var(--red);
+        }
+
+        .contacto-info > p {
+            font-size: 1rem;
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .contacto-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacto-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contacto-detail-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--black-card);
+            border: 1px solid rgba(226, 26, 26, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+        }
+
+        .contacto-detail-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--red);
+        }
+
+        .contacto-detail-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contacto-detail-text strong {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white-pure);
+            margin-bottom: 2px;
+        }
+
+        .contacto-detail-text span {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+        }
+
+        .contacto-cta-area {
+            position: relative;
+            z-index: 2;
+            background: var(--black-card);
+            padding: 48px 40px;
+            border-left: 4px solid var(--red);
+            clip-path: polygon(0 0, 100% 16px, 100% 100%, 0 calc(100% - 16px));
+        }
+
+        .contacto-cta-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red), transparent);
+        }
+
+        .contacto-cta-area h4 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white-pure);
+            margin-bottom: 12px;
+        }
+
+        .contacto-cta-area p {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .contacto-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: #25D366;
+            color: var(--white-pure);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 18px 40px;
+            clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contacto-whatsapp-btn:hover {
+            background: #1da851;
+            transform: scale(1.03);
+        }
+
+        .contacto-whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Motorsport-style process steps */
+        .contacto-steps {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .contacto-step {
+            flex: 1;
+            text-align: center;
+        }
+
+        .contacto-step-num {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--red);
+            line-height: 1;
+        }
+
+        .contacto-step-text {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-top: 6px;
+        }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .footer {
+            background: var(--black);
+            border-top: 3px solid var(--red);
+            padding: 48px 24px 24px;
+            position: relative;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        .footer-logo span {
+            color: var(--red);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--red);
+        }
+
+        /* =============================================
+           FLOATING WHATSAPP BUTTON
+           ============================================= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: var(--black-card);
+            border: 2px solid var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 24px rgba(226, 26, 26, 0.25);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 32px rgba(226, 26, 26, 0.4);
+        }
+
+        .whatsapp-float svg {
+            width: 28px;
+            height: 28px;
+            fill: #25D366;
+        }
+
+        /* Pulse animation */
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--red);
+            opacity: 0;
+            animation: waPulse 2.5s infinite;
+            z-index: -1;
+        }
+
+        @keyframes waPulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* =============================================
+           RESPONSIVE
+           ============================================= */
+        @media (max-width: 1024px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .sobre-visual {
+                order: -1;
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 13, 0.98);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.3s ease;
+                border-bottom: 2px solid transparent;
+            }
+
+            .nav-links.open {
+                max-height: 400px;
+                padding: 16px 0;
+                border-bottom-color: var(--red);
+            }
+
+            .nav-links a {
+                padding: 14px 24px;
+                width: 100%;
+                text-align: left;
+            }
+
+            .nav-cta {
+                clip-path: none !important;
+                margin: 8px 24px;
+                text-align: center;
+                display: block;
+                width: calc(100% - 48px);
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero::before {
+                width: 80px;
+                opacity: 0.6;
+            }
+
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sobre-values {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto-cta-area {
+                padding: 32px 24px;
+                clip-path: none;
+            }
+
+            .contacto-steps {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-cta {
+                padding: 16px 36px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 72px 16px;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.6rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-bar"></span>
+                MI TIENDA <span>3D</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#sobre">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="https://wa.me/34624478759" class="nav-cta" target="_blank" rel="noopener">Presupuesto</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero carbon-fiber" id="hero">
+        <div class="hero-speed-lines"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <p class="hero-tag">Impresión 3D de Alto Rendimiento</p>
+            <h1 class="hero-title">
+                Fabricamos Tus
+                <span class="accent">Ideas en 3D</span>
+            </h1>
+            <p class="hero-subtitle">
+                Piezas personalizadas con precisión milimétrica en PLA y PETG.
+                Calidad profesional desde el corazón de Madrid.
+            </p>
+            <a href="https://wa.me/34624478759" class="hero-cta" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Pide Tu Presupuesto
+            </a>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">0.2mm</div>
+                    <div class="hero-stat-label">Precisión</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">PLA</div>
+                    <div class="hero-stat-label">Material</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">PETG</div>
+                    <div class="hero-stat-label">Material</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">24h</div>
+                    <div class="hero-stat-label">Presupuesto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICIOS SECTION
+         ============================================ -->
+    <section class="section servicios" id="servicios">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Lo Que Hacemos</p>
+                <h2 class="section-title">Nuestros <span class="accent">Servicios</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="servicios-grid">
+                <!-- Card 1 -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 4-7-4V5l7 4 7-4v4zm0-6H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H5V10.17l7 4 7-4V19z"/></svg>
+                    </div>
+                    <h3>Impresión 3D Personalizada</h3>
+                    <p>Fabricamos cualquier pieza a medida bajo demanda. Desde prototipos funcionales hasta piezas decorativas con acabado profesional.</p>
+                    <ul class="specs-list">
+                        <li><strong>Tecnología:</strong> FDM de alta precisión</li>
+                        <li><strong>Resolución:</strong> Desde 0.2mm por capa</li>
+                        <li><strong>Volumen máx.:</strong> 256 x 256 x 256 mm</li>
+                        <li><strong>Plazo:</strong> 24-72h según complejidad</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <h3>Material PLA</h3>
+                    <p>El material más versátil para impresión 3D. Ideal para maquetas, prototipos y piezas decorativas con excelente acabado superficial.</p>
+                    <ul class="specs-list">
+                        <li><strong>Biodegradable:</strong> Origen vegetal</li>
+                        <li><strong>Acabado:</strong> Liso y brillante</li>
+                        <li><strong>Colores:</strong> Amplia gama disponible</li>
+                        <li><strong>Uso:</strong> Interior y decorativo</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg>
+                    </div>
+                    <h3>Material PETG</h3>
+                    <p>Máximo rendimiento mecánico. Resistente a impactos, temperatura y agentes químicos. La elección para piezas funcionales de alto estrés.</p>
+                    <ul class="specs-list">
+                        <li><strong>Resistencia:</strong> Mecánica y térmica</li>
+                        <li><strong>Flexibilidad:</strong> Alta absorción de impactos</li>
+                        <li><strong>Químicos:</strong> Resistente</li>
+                        <li><strong>Uso:</strong> Piezas funcionales y exteriores</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GALERIA SECTION
+         ============================================ -->
+    <section class="section galeria" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Nuestro Trabajo</p>
+                <h2 class="section-title">Galería de <span class="accent">Proyectos</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Impresion+3D" alt="Impresión 3D personalizada" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Prototipo+PLA" alt="Prototipo fabricado en PLA" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Pieza+PETG" alt="Pieza funcional en PETG" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Maqueta+3D" alt="Maqueta arquitectónica 3D" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Diseño+Custom" alt="Diseño personalizado impreso" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Acabado+Pro" alt="Pieza con acabado profesional" loading="lazy" width="600" height="400">
+                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SOBRE NOSOTROS SECTION
+         ============================================ -->
+    <section class="section sobre" id="sobre">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Quiénes Somos</p>
+                <h2 class="section-title">Sobre <span class="accent">Nosotros</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="sobre-grid">
+                <div class="sobre-content">
+                    <h3>Precisión y <span class="accent">Rendimiento</span> en Cada Pieza</h3>
+                    <p>
+                        Desde nuestro taller en <strong>Embajadores, Madrid</strong>, llevamos la impresión 3D al
+                        máximo nivel de exigencia. Cada pieza que fabricamos pasa por un riguroso control de calidad
+                        que garantiza tolerancias milimétricas y acabados de competición.
+                    </p>
+                    <p>
+                        Trabajamos con la filosofía del alto rendimiento: materiales de primera línea, calibración
+                        constante de nuestros equipos y una obsesión por la perfección que se refleja en cada capa
+                        de impresión.
+                    </p>
+                    <div class="sobre-values">
+                        <div class="sobre-value">
+                            <h4>Precisión</h4>
+                            <p>Tolerancias desde 0.2mm. Cada micra cuenta en el resultado final.</p>
+                        </div>
+                        <div class="sobre-value">
+                            <h4>Rendimiento</h4>
+                            <p>Materiales seleccionados para máxima resistencia y durabilidad.</p>
+                        </div>
+                        <div class="sobre-value">
+                            <h4>Velocidad</h4>
+                            <p>Presupuestos en 24h. Entregas en el menor tiempo posible.</p>
+                        </div>
+                        <div class="sobre-value">
+                            <h4>Calidad</h4>
+                            <p>Control exhaustivo pieza a pieza. Sin excepciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-visual">
+                    <div class="sobre-image-wrapper">
+                        <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Mi+Tienda+3D" alt="Taller de impresión 3D en Embajadores, Madrid" loading="lazy" width="600" height="400">
+                    </div>
+                    <div class="sobre-badge">
+                        <div class="badge-value">Madrid</div>
+                        <div class="badge-label">Embajadores</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACTO SECTION
+         ============================================ -->
+    <section class="section contacto" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Hablemos</p>
+                <h2 class="section-title">Contacta <span class="accent">Con Nosotros</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>¿Tienes un <span class="accent">proyecto</span>?</h3>
+                    <p>
+                        Cuéntanos tu idea y la haremos realidad. Pide tu presupuesto sin compromiso
+                        por WhatsApp y recibe respuesta en menos de 24 horas.
+                    </p>
+                    <div class="contacto-details">
+                        <div class="contacto-detail">
+                            <div class="contacto-detail-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </div>
+                            <div class="contacto-detail-text">
+                                <strong>Ubicación</strong>
+                                <span>Embajadores, Madrid, España</span>
+                            </div>
+                        </div>
+                        <div class="contacto-detail">
+                            <div class="contacto-detail-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </div>
+                            <div class="contacto-detail-text">
+                                <strong>WhatsApp</strong>
+                                <span>+34 624 478 759</span>
+                            </div>
+                        </div>
+                        <div class="contacto-detail">
+                            <div class="contacto-detail-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            </div>
+                            <div class="contacto-detail-text">
+                                <strong>Horario</strong>
+                                <span>Lun - Vie: 10:00 - 20:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacto-cta-area">
+                    <h4>Pide Tu Presupuesto</h4>
+                    <p>
+                        Envíanos tu archivo 3D o describe tu idea por WhatsApp. Te respondemos con un
+                        presupuesto detallado en menos de 24 horas. Sin compromiso.
+                    </p>
+                    <a href="https://wa.me/34624478759" class="contacto-whatsapp-btn" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Pide Tu Presupuesto por WhatsApp
+                    </a>
+                    <div class="contacto-steps">
+                        <div class="contacto-step">
+                            <div class="contacto-step-num">01</div>
+                            <div class="contacto-step-text">Cuéntanos tu idea</div>
+                        </div>
+                        <div class="contacto-step">
+                            <div class="contacto-step-num">02</div>
+                            <div class="contacto-step-text">Recibe presupuesto</div>
+                        </div>
+                        <div class="contacto-step">
+                            <div class="contacto-step-num">03</div>
+                            <div class="contacto-step-text">Fabricamos tu pieza</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">MI TIENDA <span>3D</span></div>
+            <div class="footer-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#sobre">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Mi Tienda 3D — Embajadores, Madrid. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         FLOATING WHATSAPP BUTTON
+         ============================================ -->
+    <a href="https://wa.me/34624478759" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ============================================
+         SCRIPTS
+         ============================================ -->
+    <script>
+        // Sticky nav shadow on scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.servicio-card, .galeria-item, .sobre-value, .contacto-detail').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
