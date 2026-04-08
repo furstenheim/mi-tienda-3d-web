@@ -43,23 +43,15 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 70px;
         }
 
         body {
             font-family: var(--font-body);
-            background-color: var(--black);
+            background: var(--black);
             color: var(--white);
-            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
         }
 
         a {
@@ -71,9 +63,12 @@
             list-style: none;
         }
 
-        /* =============================================
-           CARBON FIBER PATTERN
-           ============================================= */
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Carbon fiber background texture */
         .carbon-fiber {
             background-color: var(--black);
             background-image:
@@ -81,22 +76,22 @@
                     45deg,
                     transparent,
                     transparent 2px,
-                    rgba(255,255,255,0.015) 2px,
-                    rgba(255,255,255,0.015) 4px
+                    rgba(255,255,255,0.012) 2px,
+                    rgba(255,255,255,0.012) 4px
                 ),
                 repeating-linear-gradient(
                     -45deg,
                     transparent,
                     transparent 2px,
-                    rgba(255,255,255,0.02) 2px,
-                    rgba(255,255,255,0.02) 4px
+                    rgba(255,255,255,0.018) 2px,
+                    rgba(255,255,255,0.018) 4px
                 ),
                 repeating-linear-gradient(
-                    0deg,
+                    90deg,
                     transparent,
-                    transparent 3px,
-                    rgba(255,255,255,0.008) 3px,
-                    rgba(255,255,255,0.008) 6px
+                    transparent 4px,
+                    rgba(255,255,255,0.006) 4px,
+                    rgba(255,255,255,0.006) 8px
                 );
         }
 
@@ -209,6 +204,27 @@
             background: var(--red-dark) !important;
         }
 
+        /* Language toggle */
+        .lang-toggle {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--gray-light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, color 0.3s ease;
+            clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--red);
+            color: var(--white-pure);
+        }
+
         /* Mobile menu toggle */
         .nav-toggle {
             display: none;
@@ -238,6 +254,12 @@
 
         .nav-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
 
         /* =============================================
@@ -1356,17 +1378,20 @@
                 MI TIENDA <span>3D</span>
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="#servicios">Servicios</a>
-                <a href="#galeria">Galería</a>
-                <a href="#sobre">Nosotros</a>
-                <a href="#contacto">Contacto</a>
-                <a href="https://wa.me/34624478759" class="nav-cta" target="_blank" rel="noopener">Presupuesto</a>
+                <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
+                <a href="#galeria" data-i18n="nav.galeria">Galería</a>
+                <a href="#sobre" data-i18n="nav.nosotros">Nosotros</a>
+                <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+                <a href="https://wa.me/34624478759" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.presupuesto">Presupuesto</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Menú de navegación" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right">
+                <button class="lang-toggle" id="langToggle" aria-label="Change language">🇬🇧</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menú de navegación" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1377,35 +1402,35 @@
         <div class="hero-speed-lines"></div>
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <p class="hero-tag">Impresión 3D de Alto Rendimiento</p>
-            <h1 class="hero-title">
+            <p class="hero-tag" data-i18n="hero.tag">Impresión 3D de Alto Rendimiento</p>
+            <h1 class="hero-title" data-i18n-html="hero.title">
                 Fabricamos Tus
                 <span class="accent">Ideas en 3D</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
                 Piezas personalizadas con precisión milimétrica en PLA y PETG.
                 Calidad profesional desde el corazón de Madrid.
             </p>
             <a href="https://wa.me/34624478759" class="hero-cta" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Pide Tu Presupuesto
+                <span data-i18n="hero.cta">Pide Tu Presupuesto</span>
             </a>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="hero-stat-value">0.2mm</div>
-                    <div class="hero-stat-label">Precisión</div>
+                    <div class="hero-stat-label" data-i18n="hero.stat.precision">Precisión</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value">PLA</div>
-                    <div class="hero-stat-label">Material</div>
+                    <div class="hero-stat-label" data-i18n="hero.stat.material">Material</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value">PETG</div>
-                    <div class="hero-stat-label">Material</div>
+                    <div class="hero-stat-label" data-i18n="hero.stat.material2">Material</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value">24h</div>
-                    <div class="hero-stat-label">Presupuesto</div>
+                    <div class="hero-stat-label" data-i18n="hero.stat.quote">Presupuesto</div>
                 </div>
             </div>
         </div>
@@ -1418,8 +1443,8 @@
         <div class="section-divider"></div>
         <div class="container">
             <div class="section-header">
-                <p class="section-tag">Lo Que Hacemos</p>
-                <h2 class="section-title">Nuestros <span class="accent">Servicios</span></h2>
+                <p class="section-tag" data-i18n="servicios.tag">Lo Que Hacemos</p>
+                <h2 class="section-title" data-i18n-html="servicios.title">Nuestros <span class="accent">Servicios</span></h2>
                 <div class="section-line"></div>
             </div>
             <div class="servicios-grid">
@@ -1428,13 +1453,13 @@
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 4-7-4V5l7 4 7-4v4zm0-6H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H5V10.17l7 4 7-4V19z"/></svg>
                     </div>
-                    <h3>Impresión 3D Personalizada</h3>
-                    <p>Fabricamos cualquier pieza a medida bajo demanda. Desde prototipos funcionales hasta piezas decorativas con acabado profesional.</p>
+                    <h3 data-i18n="servicios.card1.title">Impresión 3D Personalizada</h3>
+                    <p data-i18n="servicios.card1.desc">Fabricamos cualquier pieza a medida bajo demanda. Desde prototipos funcionales hasta piezas decorativas con acabado profesional.</p>
                     <ul class="specs-list">
-                        <li><strong>Tecnología:</strong> FDM de alta precisión</li>
-                        <li><strong>Resolución:</strong> Desde 0.2mm por capa</li>
-                        <li><strong>Volumen máx.:</strong> 256 x 256 x 256 mm</li>
-                        <li><strong>Plazo:</strong> 24-72h según complejidad</li>
+                        <li data-i18n-html="servicios.card1.spec1"><strong>Tecnología:</strong> FDM de alta precisión</li>
+                        <li data-i18n-html="servicios.card1.spec2"><strong>Resolución:</strong> Desde 0.2mm por capa</li>
+                        <li data-i18n-html="servicios.card1.spec3"><strong>Volumen máx.:</strong> 256 x 256 x 256 mm</li>
+                        <li data-i18n-html="servicios.card1.spec4"><strong>Plazo:</strong> 24-72h según complejidad</li>
                     </ul>
                 </div>
                 <!-- Card 2 -->
@@ -1442,13 +1467,13 @@
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     </div>
-                    <h3>Material PLA</h3>
-                    <p>El material más versátil para impresión 3D. Ideal para maquetas, prototipos y piezas decorativas con excelente acabado superficial.</p>
+                    <h3 data-i18n="servicios.card2.title">Material PLA</h3>
+                    <p data-i18n="servicios.card2.desc">El material más versátil para impresión 3D. Ideal para maquetas, prototipos y piezas decorativas con excelente acabado superficial.</p>
                     <ul class="specs-list">
-                        <li><strong>Biodegradable:</strong> Origen vegetal</li>
-                        <li><strong>Acabado:</strong> Liso y brillante</li>
-                        <li><strong>Colores:</strong> Amplia gama disponible</li>
-                        <li><strong>Uso:</strong> Interior y decorativo</li>
+                        <li data-i18n-html="servicios.card2.spec1"><strong>Biodegradable:</strong> Origen vegetal</li>
+                        <li data-i18n-html="servicios.card2.spec2"><strong>Acabado:</strong> Liso y brillante</li>
+                        <li data-i18n-html="servicios.card2.spec3"><strong>Colores:</strong> Amplia gama disponible</li>
+                        <li data-i18n-html="servicios.card2.spec4"><strong>Uso:</strong> Interior y decorativo</li>
                     </ul>
                 </div>
                 <!-- Card 3 -->
@@ -1456,13 +1481,13 @@
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg>
                     </div>
-                    <h3>Material PETG</h3>
-                    <p>Máximo rendimiento mecánico. Resistente a impactos, temperatura y agentes químicos. La elección para piezas funcionales de alto estrés.</p>
+                    <h3 data-i18n="servicios.card3.title">Material PETG</h3>
+                    <p data-i18n="servicios.card3.desc">Máximo rendimiento mecánico. Resistente a impactos, temperatura y agentes químicos. La elección para piezas funcionales de alto estrés.</p>
                     <ul class="specs-list">
-                        <li><strong>Resistencia:</strong> Mecánica y térmica</li>
-                        <li><strong>Flexibilidad:</strong> Alta absorción de impactos</li>
-                        <li><strong>Químicos:</strong> Resistente</li>
-                        <li><strong>Uso:</strong> Piezas funcionales y exteriores</li>
+                        <li data-i18n-html="servicios.card3.spec1"><strong>Resistencia:</strong> Mecánica y térmica</li>
+                        <li data-i18n-html="servicios.card3.spec2"><strong>Flexibilidad:</strong> Alta absorción de impactos</li>
+                        <li data-i18n-html="servicios.card3.spec3"><strong>Químicos:</strong> Resistente</li>
+                        <li data-i18n-html="servicios.card3.spec4"><strong>Uso:</strong> Piezas funcionales y exteriores</li>
                     </ul>
                 </div>
             </div>
@@ -1475,34 +1500,34 @@
     <section class="section galeria" id="galeria">
         <div class="container">
             <div class="section-header">
-                <p class="section-tag">Nuestro Trabajo</p>
-                <h2 class="section-title">Galería de <span class="accent">Proyectos</span></h2>
+                <p class="section-tag" data-i18n="galeria.tag">Nuestro Trabajo</p>
+                <h2 class="section-title" data-i18n-html="galeria.title">Galería de <span class="accent">Proyectos</span></h2>
                 <div class="section-line"></div>
             </div>
             <div class="galeria-grid">
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Impresion+3D" alt="Impresión 3D personalizada" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Prototipo+PLA" alt="Prototipo fabricado en PLA" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver2">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Pieza+PETG" alt="Pieza funcional en PETG" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver3">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Maqueta+3D" alt="Maqueta arquitectónica 3D" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver4">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Diseño+Custom" alt="Diseño personalizado impreso" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver5">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Acabado+Pro" alt="Pieza con acabado profesional" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span>Ver Proyecto</span></div>
+                    <div class="galeria-overlay"><span data-i18n="galeria.ver6">Ver Proyecto</span></div>
                 </div>
             </div>
         </div>
@@ -1515,39 +1540,39 @@
         <div class="section-divider"></div>
         <div class="container">
             <div class="section-header">
-                <p class="section-tag">Quiénes Somos</p>
-                <h2 class="section-title">Sobre <span class="accent">Nosotros</span></h2>
+                <p class="section-tag" data-i18n="sobre.tag">Quiénes Somos</p>
+                <h2 class="section-title" data-i18n-html="sobre.title">Sobre <span class="accent">Nosotros</span></h2>
                 <div class="section-line"></div>
             </div>
             <div class="sobre-grid">
                 <div class="sobre-content">
-                    <h3>Precisión y <span class="accent">Rendimiento</span> en Cada Pieza</h3>
-                    <p>
-                        Desde nuestro taller en <strong>Embajadores, Madrid</strong>, llevamos la impresión 3D al
+                    <h3 data-i18n-html="sobre.heading">Precisión y <span class="accent">Rendimiento</span> en Cada Pieza</h3>
+                    <p data-i18n="sobre.p1">
+                        Desde nuestro taller en Embajadores, Madrid, llevamos la impresión 3D al
                         máximo nivel de exigencia. Cada pieza que fabricamos pasa por un riguroso control de calidad
                         que garantiza tolerancias milimétricas y acabados de competición.
                     </p>
-                    <p>
+                    <p data-i18n="sobre.p2">
                         Trabajamos con la filosofía del alto rendimiento: materiales de primera línea, calibración
                         constante de nuestros equipos y una obsesión por la perfección que se refleja en cada capa
                         de impresión.
                     </p>
                     <div class="sobre-values">
                         <div class="sobre-value">
-                            <h4>Precisión</h4>
-                            <p>Tolerancias desde 0.2mm. Cada micra cuenta en el resultado final.</p>
+                            <h4 data-i18n="sobre.val1.title">Precisión</h4>
+                            <p data-i18n="sobre.val1.desc">Tolerancias desde 0.2mm. Cada micra cuenta en el resultado final.</p>
                         </div>
                         <div class="sobre-value">
-                            <h4>Rendimiento</h4>
-                            <p>Materiales seleccionados para máxima resistencia y durabilidad.</p>
+                            <h4 data-i18n="sobre.val2.title">Rendimiento</h4>
+                            <p data-i18n="sobre.val2.desc">Materiales seleccionados para máxima resistencia y durabilidad.</p>
                         </div>
                         <div class="sobre-value">
-                            <h4>Velocidad</h4>
-                            <p>Presupuestos en 24h. Entregas en el menor tiempo posible.</p>
+                            <h4 data-i18n="sobre.val3.title">Velocidad</h4>
+                            <p data-i18n="sobre.val3.desc">Presupuestos en 24h. Entregas en el menor tiempo posible.</p>
                         </div>
                         <div class="sobre-value">
-                            <h4>Calidad</h4>
-                            <p>Control exhaustivo pieza a pieza. Sin excepciones.</p>
+                            <h4 data-i18n="sobre.val4.title">Calidad</h4>
+                            <p data-i18n="sobre.val4.desc">Control exhaustivo pieza a pieza. Sin excepciones.</p>
                         </div>
                     </div>
                 </div>
@@ -1570,14 +1595,14 @@
     <section class="section contacto" id="contacto">
         <div class="container">
             <div class="section-header">
-                <p class="section-tag">Hablemos</p>
-                <h2 class="section-title">Contacta <span class="accent">Con Nosotros</span></h2>
+                <p class="section-tag" data-i18n="contacto.tag">Hablemos</p>
+                <h2 class="section-title" data-i18n-html="contacto.title">Contacta <span class="accent">Con Nosotros</span></h2>
                 <div class="section-line"></div>
             </div>
             <div class="contacto-grid">
                 <div class="contacto-info">
-                    <h3>¿Tienes un <span class="accent">proyecto</span>?</h3>
-                    <p>
+                    <h3 data-i18n-html="contacto.heading">¿Tienes un <span class="accent">proyecto</span>?</h3>
+                    <p data-i18n="contacto.desc">
                         Cuéntanos tu idea y la haremos realidad. Pide tu presupuesto sin compromiso
                         por WhatsApp y recibe respuesta en menos de 24 horas.
                     </p>
@@ -1587,8 +1612,8 @@
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                             </div>
                             <div class="contacto-detail-text">
-                                <strong>Ubicación</strong>
-                                <span>Embajadores, Madrid, España</span>
+                                <strong data-i18n="contacto.ubicacion.label">Ubicación</strong>
+                                <span data-i18n="contacto.ubicacion.value">Embajadores, Madrid, España</span>
                             </div>
                         </div>
                         <div class="contacto-detail">
@@ -1605,34 +1630,34 @@
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                             </div>
                             <div class="contacto-detail-text">
-                                <strong>Horario</strong>
-                                <span>Lun - Vie: 10:00 - 20:00</span>
+                                <strong data-i18n="contacto.horario.label">Horario</strong>
+                                <span data-i18n="contacto.horario.value">Lun - Vie: 10:00 - 20:00</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="contacto-cta-area">
-                    <h4>Pide Tu Presupuesto</h4>
-                    <p>
+                    <h4 data-i18n="contacto.cta.title">Pide Tu Presupuesto</h4>
+                    <p data-i18n="contacto.cta.desc">
                         Envíanos tu archivo 3D o describe tu idea por WhatsApp. Te respondemos con un
                         presupuesto detallado en menos de 24 horas. Sin compromiso.
                     </p>
                     <a href="https://wa.me/34624478759" class="contacto-whatsapp-btn" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Pide Tu Presupuesto por WhatsApp
+                        <span data-i18n="contacto.cta.btn">Pide Tu Presupuesto por WhatsApp</span>
                     </a>
                     <div class="contacto-steps">
                         <div class="contacto-step">
                             <div class="contacto-step-num">01</div>
-                            <div class="contacto-step-text">Cuéntanos tu idea</div>
+                            <div class="contacto-step-text" data-i18n="contacto.step1">Cuéntanos tu idea</div>
                         </div>
                         <div class="contacto-step">
                             <div class="contacto-step-num">02</div>
-                            <div class="contacto-step-text">Recibe presupuesto</div>
+                            <div class="contacto-step-text" data-i18n="contacto.step2">Recibe presupuesto</div>
                         </div>
                         <div class="contacto-step">
                             <div class="contacto-step-num">03</div>
-                            <div class="contacto-step-text">Fabricamos tu pieza</div>
+                            <div class="contacto-step-text" data-i18n="contacto.step3">Fabricamos tu pieza</div>
                         </div>
                     </div>
                 </div>
@@ -1647,12 +1672,12 @@
         <div class="footer-inner">
             <div class="footer-logo">MI TIENDA <span>3D</span></div>
             <div class="footer-links">
-                <a href="#servicios">Servicios</a>
-                <a href="#galeria">Galería</a>
-                <a href="#sobre">Nosotros</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#servicios" data-i18n="footer.servicios">Servicios</a>
+                <a href="#galeria" data-i18n="footer.galeria">Galería</a>
+                <a href="#sobre" data-i18n="footer.nosotros">Nosotros</a>
+                <a href="#contacto" data-i18n="footer.contacto">Contacto</a>
             </div>
-            <p class="footer-copy">&copy; 2026 Mi Tienda 3D — Embajadores, Madrid. Todos los derechos reservados.</p>
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Mi Tienda 3D — Embajadores, Madrid. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -1667,13 +1692,217 @@
          SCRIPTS
          ============================================ -->
     <script>
-        // Sticky nav shadow on scroll
+        // =============================================
+        // TRANSLATIONS
+        // =============================================
+        const translations = {
+            es: {
+                'nav.servicios': 'Servicios',
+                'nav.galeria': 'Galería',
+                'nav.nosotros': 'Nosotros',
+                'nav.contacto': 'Contacto',
+                'nav.presupuesto': 'Presupuesto',
+                'hero.tag': 'Impresión 3D de Alto Rendimiento',
+                'hero.title': 'Fabricamos Tus <span class="accent">Ideas en 3D</span>',
+                'hero.subtitle': 'Piezas personalizadas con precisión milimétrica en PLA y PETG. Calidad profesional desde el corazón de Madrid.',
+                'hero.cta': 'Pide Tu Presupuesto',
+                'hero.stat.precision': 'Precisión',
+                'hero.stat.material': 'Material',
+                'hero.stat.material2': 'Material',
+                'hero.stat.quote': 'Presupuesto',
+                'servicios.tag': 'Lo Que Hacemos',
+                'servicios.title': 'Nuestros <span class="accent">Servicios</span>',
+                'servicios.card1.title': 'Impresión 3D Personalizada',
+                'servicios.card1.desc': 'Fabricamos cualquier pieza a medida bajo demanda. Desde prototipos funcionales hasta piezas decorativas con acabado profesional.',
+                'servicios.card1.spec1': '<strong>Tecnología:</strong> FDM de alta precisión',
+                'servicios.card1.spec2': '<strong>Resolución:</strong> Desde 0.2mm por capa',
+                'servicios.card1.spec3': '<strong>Volumen máx.:</strong> 256 x 256 x 256 mm',
+                'servicios.card1.spec4': '<strong>Plazo:</strong> 24-72h según complejidad',
+                'servicios.card2.title': 'Material PLA',
+                'servicios.card2.desc': 'El material más versátil para impresión 3D. Ideal para maquetas, prototipos y piezas decorativas con excelente acabado superficial.',
+                'servicios.card2.spec1': '<strong>Biodegradable:</strong> Origen vegetal',
+                'servicios.card2.spec2': '<strong>Acabado:</strong> Liso y brillante',
+                'servicios.card2.spec3': '<strong>Colores:</strong> Amplia gama disponible',
+                'servicios.card2.spec4': '<strong>Uso:</strong> Interior y decorativo',
+                'servicios.card3.title': 'Material PETG',
+                'servicios.card3.desc': 'Máximo rendimiento mecánico. Resistente a impactos, temperatura y agentes químicos. La elección para piezas funcionales de alto estrés.',
+                'servicios.card3.spec1': '<strong>Resistencia:</strong> Mecánica y térmica',
+                'servicios.card3.spec2': '<strong>Flexibilidad:</strong> Alta absorción de impactos',
+                'servicios.card3.spec3': '<strong>Químicos:</strong> Resistente',
+                'servicios.card3.spec4': '<strong>Uso:</strong> Piezas funcionales y exteriores',
+                'galeria.tag': 'Nuestro Trabajo',
+                'galeria.title': 'Galería de <span class="accent">Proyectos</span>',
+                'galeria.ver': 'Ver Proyecto',
+                'galeria.ver2': 'Ver Proyecto',
+                'galeria.ver3': 'Ver Proyecto',
+                'galeria.ver4': 'Ver Proyecto',
+                'galeria.ver5': 'Ver Proyecto',
+                'galeria.ver6': 'Ver Proyecto',
+                'sobre.tag': 'Quiénes Somos',
+                'sobre.title': 'Sobre <span class="accent">Nosotros</span>',
+                'sobre.heading': 'Precisión y <span class="accent">Rendimiento</span> en Cada Pieza',
+                'sobre.p1': 'Desde nuestro taller en Embajadores, Madrid, llevamos la impresión 3D al máximo nivel de exigencia. Cada pieza que fabricamos pasa por un riguroso control de calidad que garantiza tolerancias milimétricas y acabados de competición.',
+                'sobre.p2': 'Trabajamos con la filosofía del alto rendimiento: materiales de primera línea, calibración constante de nuestros equipos y una obsesión por la perfección que se refleja en cada capa de impresión.',
+                'sobre.val1.title': 'Precisión',
+                'sobre.val1.desc': 'Tolerancias desde 0.2mm. Cada micra cuenta en el resultado final.',
+                'sobre.val2.title': 'Rendimiento',
+                'sobre.val2.desc': 'Materiales seleccionados para máxima resistencia y durabilidad.',
+                'sobre.val3.title': 'Velocidad',
+                'sobre.val3.desc': 'Presupuestos en 24h. Entregas en el menor tiempo posible.',
+                'sobre.val4.title': 'Calidad',
+                'sobre.val4.desc': 'Control exhaustivo pieza a pieza. Sin excepciones.',
+                'contacto.tag': 'Hablemos',
+                'contacto.title': 'Contacta <span class="accent">Con Nosotros</span>',
+                'contacto.heading': '¿Tienes un <span class="accent">proyecto</span>?',
+                'contacto.desc': 'Cuéntanos tu idea y la haremos realidad. Pide tu presupuesto sin compromiso por WhatsApp y recibe respuesta en menos de 24 horas.',
+                'contacto.ubicacion.label': 'Ubicación',
+                'contacto.ubicacion.value': 'Embajadores, Madrid, España',
+                'contacto.horario.label': 'Horario',
+                'contacto.horario.value': 'Lun - Vie: 10:00 - 20:00',
+                'contacto.cta.title': 'Pide Tu Presupuesto',
+                'contacto.cta.desc': 'Envíanos tu archivo 3D o describe tu idea por WhatsApp. Te respondemos con un presupuesto detallado en menos de 24 horas. Sin compromiso.',
+                'contacto.cta.btn': 'Pide Tu Presupuesto por WhatsApp',
+                'contacto.step1': 'Cuéntanos tu idea',
+                'contacto.step2': 'Recibe presupuesto',
+                'contacto.step3': 'Fabricamos tu pieza',
+                'footer.servicios': 'Servicios',
+                'footer.galeria': 'Galería',
+                'footer.nosotros': 'Nosotros',
+                'footer.contacto': 'Contacto',
+                'footer.copy': '\u00a9 2026 Mi Tienda 3D \u2014 Embajadores, Madrid. Todos los derechos reservados.'
+            },
+            en: {
+                'nav.servicios': 'Services',
+                'nav.galeria': 'Gallery',
+                'nav.nosotros': 'About',
+                'nav.contacto': 'Contact',
+                'nav.presupuesto': 'Get a Quote',
+                'hero.tag': 'High Performance 3D Printing',
+                'hero.title': 'We Build Your <span class="accent">Ideas in 3D</span>',
+                'hero.subtitle': 'Custom parts with millimetric precision in PLA and PETG. Professional quality from the heart of Madrid.',
+                'hero.cta': 'Get Your Quote',
+                'hero.stat.precision': 'Precision',
+                'hero.stat.material': 'Material',
+                'hero.stat.material2': 'Material',
+                'hero.stat.quote': 'Quote',
+                'servicios.tag': 'What We Do',
+                'servicios.title': 'Our <span class="accent">Services</span>',
+                'servicios.card1.title': 'Custom 3D Printing',
+                'servicios.card1.desc': 'We manufacture any custom part on demand. From functional prototypes to decorative pieces with professional finish.',
+                'servicios.card1.spec1': '<strong>Technology:</strong> High precision FDM',
+                'servicios.card1.spec2': '<strong>Resolution:</strong> From 0.2mm per layer',
+                'servicios.card1.spec3': '<strong>Max volume:</strong> 256 x 256 x 256 mm',
+                'servicios.card1.spec4': '<strong>Lead time:</strong> 24-72h depending on complexity',
+                'servicios.card2.title': 'PLA Material',
+                'servicios.card2.desc': 'The most versatile material for 3D printing. Ideal for models, prototypes, and decorative pieces with excellent surface finish.',
+                'servicios.card2.spec1': '<strong>Biodegradable:</strong> Plant-based origin',
+                'servicios.card2.spec2': '<strong>Finish:</strong> Smooth and glossy',
+                'servicios.card2.spec3': '<strong>Colors:</strong> Wide range available',
+                'servicios.card2.spec4': '<strong>Use:</strong> Indoor and decorative',
+                'servicios.card3.title': 'PETG Material',
+                'servicios.card3.desc': 'Maximum mechanical performance. Impact, temperature, and chemical resistant. The choice for high-stress functional parts.',
+                'servicios.card3.spec1': '<strong>Strength:</strong> Mechanical and thermal',
+                'servicios.card3.spec2': '<strong>Flexibility:</strong> High impact absorption',
+                'servicios.card3.spec3': '<strong>Chemicals:</strong> Resistant',
+                'servicios.card3.spec4': '<strong>Use:</strong> Functional and outdoor parts',
+                'galeria.tag': 'Our Work',
+                'galeria.title': 'Project <span class="accent">Gallery</span>',
+                'galeria.ver': 'View Project',
+                'galeria.ver2': 'View Project',
+                'galeria.ver3': 'View Project',
+                'galeria.ver4': 'View Project',
+                'galeria.ver5': 'View Project',
+                'galeria.ver6': 'View Project',
+                'sobre.tag': 'Who We Are',
+                'sobre.title': 'About <span class="accent">Us</span>',
+                'sobre.heading': 'Precision and <span class="accent">Performance</span> in Every Part',
+                'sobre.p1': 'From our workshop in Embajadores, Madrid, we take 3D printing to the highest level. Every part we manufacture goes through rigorous quality control ensuring millimetric tolerances and competition-grade finishes.',
+                'sobre.p2': 'We work with a high-performance philosophy: top-tier materials, constant calibration of our equipment, and an obsession with perfection reflected in every printed layer.',
+                'sobre.val1.title': 'Precision',
+                'sobre.val1.desc': 'Tolerances from 0.2mm. Every micron counts in the final result.',
+                'sobre.val2.title': 'Performance',
+                'sobre.val2.desc': 'Materials selected for maximum strength and durability.',
+                'sobre.val3.title': 'Speed',
+                'sobre.val3.desc': 'Quotes in 24h. Deliveries as fast as possible.',
+                'sobre.val4.title': 'Quality',
+                'sobre.val4.desc': 'Thorough inspection part by part. No exceptions.',
+                'contacto.tag': "Let's Talk",
+                'contacto.title': 'Get In <span class="accent">Touch</span>',
+                'contacto.heading': 'Have a <span class="accent">project</span>?',
+                'contacto.desc': 'Tell us your idea and we\'ll make it happen. Request a no-obligation quote via WhatsApp and get a response within 24 hours.',
+                'contacto.ubicacion.label': 'Location',
+                'contacto.ubicacion.value': 'Embajadores, Madrid, Spain',
+                'contacto.horario.label': 'Hours',
+                'contacto.horario.value': 'Mon - Fri: 10:00 - 20:00',
+                'contacto.cta.title': 'Get Your Quote',
+                'contacto.cta.desc': 'Send us your 3D file or describe your idea via WhatsApp. We\'ll respond with a detailed quote within 24 hours. No obligation.',
+                'contacto.cta.btn': 'Get Your Quote on WhatsApp',
+                'contacto.step1': 'Tell us your idea',
+                'contacto.step2': 'Receive a quote',
+                'contacto.step3': 'We build your part',
+                'footer.servicios': 'Services',
+                'footer.galeria': 'Gallery',
+                'footer.nosotros': 'About',
+                'footer.contacto': 'Contact',
+                'footer.copy': '\u00a9 2026 Mi Tienda 3D \u2014 Embajadores, Madrid. All rights reserved.'
+            }
+        };
+
+        let currentLang = 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('mi-tienda-3d-lang', lang);
+
+            const t = translations[lang];
+            const langBtn = document.getElementById('langToggle');
+
+            // Show the OTHER language's flag (the one you'd switch TO)
+            langBtn.textContent = lang === 'es' ? '\uD83C\uDDEC\uD83C\uDDE7' : '\uD83C\uDDEA\uD83C\uDDF8';
+            langBtn.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a español');
+
+            // Update text-only elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.textContent = t[key];
+                }
+            });
+
+            // Update elements with HTML content (spans with classes, strong tags, etc.)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = lang === 'es'
+                    ? 'Mi Tienda 3D - Impresión 3D de alto rendimiento en Embajadores, Madrid. Piezas personalizadas en PLA y PETG con precisión milimétrica.'
+                    : 'Mi Tienda 3D - High performance 3D printing in Embajadores, Madrid. Custom parts in PLA and PETG with millimetric precision.';
+            }
+        }
+
+        // Determine initial language
+        function getInitialLang() {
+            const saved = localStorage.getItem('mi-tienda-3d-lang');
+            if (saved && (saved === 'es' || saved === 'en')) return saved;
+            const browserLang = navigator.language || navigator.userLanguage || 'es';
+            return browserLang.startsWith('en') ? 'en' : 'es';
+        }
+
+        // =============================================
+        // NAVIGATION
+        // =============================================
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        // Mobile menu toggle
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -1683,7 +1912,6 @@
             navToggle.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close mobile menu on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -1692,7 +1920,14 @@
             });
         });
 
-        // Smooth reveal animations on scroll
+        // Language toggle
+        document.getElementById('langToggle').addEventListener('click', () => {
+            setLanguage(currentLang === 'es' ? 'en' : 'es');
+        });
+
+        // =============================================
+        // SCROLL ANIMATIONS
+        // =============================================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -40px 0px'
@@ -1714,6 +1949,17 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // =============================================
+        // INIT LANGUAGE
+        // =============================================
+        const initLang = getInitialLang();
+        if (initLang !== 'es') {
+            setLanguage(initLang);
+        } else {
+            // Set the toggle button to show GB flag (switch-to target)
+            document.getElementById('langToggle').textContent = '\uD83C\uDDEC\uD83C\uDDE7';
+        }
     </script>
 </body>
 </html>
