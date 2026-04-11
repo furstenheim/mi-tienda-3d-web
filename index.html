@@ -701,7 +701,6 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 3/2;
-            cursor: pointer;
         }
 
         /* Red accent lines between items */
@@ -733,43 +732,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .galeria-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(226, 26, 26, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.4s ease;
-            z-index: 2;
-        }
-
-        .galeria-overlay span {
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--white-pure);
-            opacity: 0;
-            transform: translateY(12px);
-            transition: all 0.4s ease;
-        }
-
-        .galeria-item:hover img {
-            transform: scale(1.12);
-        }
-
-        .galeria-item:hover .galeria-overlay {
-            background: rgba(226, 26, 26, 0.7);
-        }
-
-        .galeria-item:hover .galeria-overlay span {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* =============================================
@@ -1506,28 +1468,22 @@
             </div>
             <div class="galeria-grid">
                 <div class="galeria-item">
-                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Impresion+3D" alt="Impresión 3D personalizada" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver">Ver Proyecto</span></div>
+                    <img src="images/project1.png" alt="Impresión 3D personalizada" loading="lazy" width="600" height="400">
                 </div>
                 <div class="galeria-item">
-                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Prototipo+PLA" alt="Prototipo fabricado en PLA" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver2">Ver Proyecto</span></div>
+                    <img src="images/project2.png" alt="Prototipo fabricado en PLA" loading="lazy" width="600" height="400">
                 </div>
                 <div class="galeria-item">
-                    <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Pieza+PETG" alt="Pieza funcional en PETG" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver3">Ver Proyecto</span></div>
+                    <img src="images/project3.png" alt="Pieza funcional en PETG" loading="lazy" width="600" height="400">
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Maqueta+3D" alt="Maqueta arquitectónica 3D" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver4">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Diseño+Custom" alt="Diseño personalizado impreso" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver5">Ver Proyecto</span></div>
                 </div>
                 <div class="galeria-item">
                     <img src="https://placehold.co/600x400/1a1a1a/E21A1A?text=Acabado+Pro" alt="Pieza con acabado profesional" loading="lazy" width="600" height="400">
-                    <div class="galeria-overlay"><span data-i18n="galeria.ver6">Ver Proyecto</span></div>
                 </div>
             </div>
         </div>
